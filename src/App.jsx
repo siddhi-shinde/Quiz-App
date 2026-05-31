@@ -1,18 +1,37 @@
-import React from 'react'
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import Home from './components/Home'
-import Quiz from './components/Quiz'
-const App = () => {
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import Navbarx from "./components/Navbarx";
+
+import Home from "./pages/Home";
+import Category from "./pages/Category";
+import Quiz from "./pages/Quiz";
+import Result from "./pages/Result";
+
+function App() {
   return (
-   <BrowserRouter>
-   <Routes>
-    <Route path="/" element={<Home/>} />
-    <Route path="/quiz" element={<Quiz/>} />
-    
-   </Routes>
-   </BrowserRouter>
-  )
+    <BrowserRouter>
+      <Navbarx />
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+
+        <Route
+          path="/category"
+          element={<Category />}
+        />
+
+        <Route
+          path="/quiz/:category"
+          element={<Quiz />}
+        />
+
+        <Route
+          path="/result"
+          element={<Result />}
+        />
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;
